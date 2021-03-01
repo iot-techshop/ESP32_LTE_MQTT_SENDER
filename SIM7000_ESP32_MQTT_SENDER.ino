@@ -1,4 +1,17 @@
+/*
+  SIM7000 ESP32 MQTT Cellular MQTT Sender
 
+  This example connects to an MQTT sever via cellular LTE CATM-1 connection
+  It sends data in a jSon format
+  Time provided by cellular network.
+  Includes support for a BME280 Environmental sensor
+  Supports Botletics SIM7000 or other SIM7000 module
+  Code by Bill Poulsen
+  www.iot-techshop.com
+  Purchase Botelics SIM7000 using this link to help support our work: https://amzn.to/2NRmyWH
+  
+  This example code is in the public domain.
+*/
 
 
 
@@ -7,12 +20,12 @@ String myDateTime;
 float myTemp;
 float myHumid;
 float myPress;
-float tmpOffset = 0;//tempoffset calfactor if needed
+float tmpOffset = 0;//temp offset cal factor if needed
 
 //MQTT
 //#define MQTT_USERNAME    "MQTT_USERNAME" //only if required by mqtt server
 //#define MQTT_PASSWORD    "MQTT_PASSWORD" //only if required by mqtt server
-//Set MQTT Server Ino at Line 
+//Set MQTT Server Ino at Line 227
 // Set topic names to publish and subscribe to
 #define MQTT_TOPIC       "sensors/bill/"
 
@@ -44,7 +57,7 @@ BME280I2C bme;    // Default : addr 0x76 forced mode, standby time = 1000 ms
 #define LTE_PWR 26 //Controls 3.3V Power to SIMCOM Module  High = ON/Low = OFF
 #define LED_RED 2 //On Board RED LED   
 
-#include <WiFi.h> //Although we are not using wifi,this library allows us to easily retrieve the 
+#include <WiFi.h> //Although we are not using wifi,this library allows us to easily retrieve the ESP32 ID
 // For ESP32 hardware serial
 #include <HardwareSerial.h>
 HardwareSerial fonaSS(1);
