@@ -216,7 +216,7 @@ void printBME280Data() {
   delay(100);
 }
 
-
+//msgCnt Number of messages to send; sDelay Number of secs delay before starting new data send
 void sendMQTT(int msgCnt, int sDelay) {
   for (int mc = 0; mc < msgCnt + 1; mc++) {
     mqttMsg();
